@@ -1,1 +1,1 @@
-web: gunicorn codestar.wsgi
+web: gunicorn chopafrica_booking_system.wsgi
