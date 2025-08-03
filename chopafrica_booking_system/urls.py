@@ -20,5 +20,5 @@ from bookings.views import my_bookings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bookings/', bookings_views.my_bookings, name='bookings'),
+    path('bookings/', my_bookings, name='bookings'),
 ]
