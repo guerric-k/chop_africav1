@@ -19,6 +19,6 @@ from django.urls import path
 from bookings.views import my_bookings
 
 urlpatterns = [
-    path('', my_bookings, name='bookings'),
+    path('bookings/', my_bookings, name='bookings'),
     path('admin/', admin.site.urls),
 ]
