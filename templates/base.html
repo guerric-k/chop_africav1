@@ -1,6 +1,9 @@
 {% load static %}
 
-
+{% url 'about' as about_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,36 +41,37 @@
                         <a class="nav-link {% if request.path == '/menu/' %}active{% endif %}" href="{% url 'menu' %}">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="">Contact</a>
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
                     </li>
                     </ul>
                     <!-- User Authentication Menu -->
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         {% if user.is_authenticated %}
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {% if user.first_name %}{{ user.first_name }}{% else %}{{ user.username }}{% endif %}
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="">My Reservations</a></li>
-                                    {% if user.is_staff %}
-                                    <li><a class="dropdown-item" href="">Admin Dashboard</a></li>
-                                    {% endif %}
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="">Logout</a></li>
-                                </ul>
-                            </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                {% if user.first_name %}{{ user.first_name }}{% else %}{{ user.username }}{% endif %}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="">My Reservations</a></li>
+                                {% if user.is_staff %}
+                                <li><a class="dropdown-item" href="/admin/">Admin Dashboard</a></li>
+                                {% endif %}
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="">Login</a>
+                            <a class="nav-link {% if request.path == '/accounts/login/' %}active{% endif %}"
+                                href="{% url 'account_login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary btn-sm text-white ms-2 px-3" href="">Register</a>
+                            <a class="nav-link btn btn-primary btn-sm text-white ms-2 px-3" href="{% url 'account_signup' %}">Register</a>
                         </li>
-                    {% endif %}
+                        {% endif %}
                 </ul>
             </div>
         </div>
