@@ -59,7 +59,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/african-restaurant-hero.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/media/menu_images/hero.jpg');
             background-size: cover;
             background-position: center;
             color: white;

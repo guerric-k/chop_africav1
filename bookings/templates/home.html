@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Chop Africa Restaurant - Authentic African Cuisine{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Beautiful Background Image -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Experience Authentic African Cuisine</h1>
+        <p class="lead mb-5">Delicious meals prepared with traditional recipes and modern techniques</p>
+        {% if user.is_authenticated %}
+            <a href="" class="btn btn-lg btn-primary px-5 py-3">Book a Table</a>
+        {% else %}
+            <a href="" class="btn btn-lg btn-primary px-5 py-3">Book a Table</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Why Choose Chop Africa</h2>
+        <div class="row g-4 mt-3">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Authentic Recipes</h5>
+                        <p class="card-text">Our dishes are prepared using authentic recipes passed down through generations, ensuring a true taste of Africa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Fresh Ingredients</h5>
+                        <p class="card-text">We use only the freshest ingredients, locally sourced whenever possible to create our flavorful dishes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Warm Hospitality</h5>
+                        <p class="card-text">Experience the traditional African hospitality as our friendly staff ensures your dining experience is memorable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Dishes Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Our Featured Dishes</h2>
+        <div class="row g-4 mt-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="{{ MEDIA_URL }}menu_images/jollof.jpg" class="card-img-top" alt="Jollof Rice" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Jollof Rice</h5>
+                        <p class="card-text">A flavorful rice dish cooked with tomatoes, peppers, and aromatic spices, popular across West Africa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="{{ MEDIA_URL }}menu_images/fufu_and_egussi.jpg" class="card-img-top" alt="Fufu with Egusi Soup" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Fufu with Egusi Soup</h5>
+                        <p class="card-text">Smooth pounded yam served with rich melon seed soup cooked with vegetables and your choice of protein.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="row g-4 mt-3">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"The Jollof rice was absolutely amazing! Perfectly spiced and the portion size was generous. Will definitely be back!"</p>
+                        <p class="fw-bold mb-0">- Sarah J.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"First time trying African cuisine and I'm so glad I chose Chop Africa. The staff was very helpful in explaining the menu and making recommendations."</p>
+                        <p class="fw-bold mb-0">- Michael T.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="card-text">"The Fufu with Egusi soup was just like my grandmother used to make. Authentic flavors and a cozy atmosphere. Highly recommend!"</p>
+                        <p class="fw-bold mb-0">- Ade O.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="mb-4">Ready to Experience Authentic African Cuisine?</h2>
+        {% if user.is_authenticated %}
+            <a href="" class="btn btn-light btn-lg px-5">Reserve a Table Now</a>
+        {% else %}
+            <a href="{% url 'account_login' %}" class="btn btn-light btn-lg px-5">Reserve a Table Now</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
