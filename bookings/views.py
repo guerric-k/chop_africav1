@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView
+from .models import MenuItem
 
 # Create your views here.
-def my_bookings(request):
-    return HttpResponse("Hello, Restaurant!")
+
+class MenuItemListView(ListView):
+    model = MenuItem
+    template_name = 'menu/menu_list.html'  
+    context_object_name = 'menu_items'     
+    paginate_by = 6
